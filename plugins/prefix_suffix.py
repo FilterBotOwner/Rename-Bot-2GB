@@ -40,7 +40,7 @@ async def see_caption(client, message):
 async def add_csuffix(client, message):
 
     if len(message.command) == 1:
-        return await message.reply_text("**__Give The Suffix__\n\nExample:- `/set_suffix @MadflixBotz`**", quote=True)
+        return await message.reply_text("**__Give The Suffix__\n\nExample:- `/set_suffix @Movie_Horn_Bot`**", quote=True)
     suffix = message.text.split(" ", 1)[1]
     JishuDeveloper = await message.reply_text("Please Wait ...", quote=True)
     await jishubotz.set_suffix(message.from_user.id, suffix)
