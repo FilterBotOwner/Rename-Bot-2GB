@@ -6,7 +6,7 @@ from helper.database import jishubotz
 async def add_caption(client, message):
 
     if len(message.command) == 1:
-        return await message.reply_text("**__Give The Prefix__\n\nExample:- `/set_prefix @MadflixBotz`**", quote=True)
+        return await message.reply_text("**__Give The Prefix__\n\nExample:- `/set_prefix @Movie_Horn_Bot`**", quote=True)
     prefix = message.text.split(" ", 1)[1]
     JishuDeveloper = await message.reply_text("Please Wait ...", quote=True)
     await jishubotz.set_prefix(message.from_user.id, prefix)
