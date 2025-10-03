@@ -1,25 +1,12 @@
 from aiohttp import web
 
-routes = web.RouteTableDef()
-
-@routes.get("/", allow_head=True)
-async def root_route_handler(request):
-    return web.json_response("JishuBotz")
-
-
 async def web_server():
-    web_app = web.Application(client_max_size=30000000)
-    web_app.add_routes(routes)
-    return web_app
+    app = web.Application()
 
+    # Health check route
+    async def healthcheck(request):
+        return web.Response(text="Swift Rename Bot is running ✅")
 
+    app.router.add_get("/", healthcheck)  # <- Default route
 
-
-
-
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @MadflixBotz
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
-# Contact @MadflixSupport
+    return app
